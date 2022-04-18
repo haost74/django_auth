@@ -4,6 +4,24 @@ body{
   background-image: url('/static/img/bk.svg');
 }
 
+div.form
+{
+    display: block;
+    text-align: center;
+    margin-top:20%;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.reg-user{
+ color: red;
+}
 
 .auto-link
 {

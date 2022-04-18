@@ -8,7 +8,9 @@
   Hi {{ user.username }}!
   <p><a href="{% url 'logout' %}" class="link-primary">Log Out</a></p>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
+  <div class="auto auto-link">
+    <a href="{% url 'login' %}" class="child">Авторизоваться</a>
+    <p class="child">Вы не авторизованы</p>
+  </div>
 {% endif %}
 {% endblock %}

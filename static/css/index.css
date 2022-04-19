@@ -19,8 +19,16 @@ form
     text-align: left;
 }
 
+.reg-user, .reg-a{
+color: #2E4053;
+}
+
 .reg-user{
- color: red;
+ color: #2E4053;
+}
+
+.reg-a{
+margin-left: 50px;
 }
 
 .auto-link
@@ -30,9 +38,33 @@ form
 }
 .child
 {
-	height: 100px;
+	height: 50px;
 	display: inline-block;
 	width: auto;
-	float: right;
+	float: center;
 	margin-right:25px;
+
+	font-size:20px;
+	text-align: center;
+}
+
+.child a{
+color:#E74C3C;
+}
+
+
+
+.div-autor{
+  display: grid;
+  width: 630px;
+    height: 250px;
+    background-color: #AEB6BF;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
 }

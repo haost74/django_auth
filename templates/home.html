@@ -8,9 +8,24 @@
   Hi {{ user.username }}!
   <p><a href="{% url 'logout' %}" class="link-primary">Log Out</a></p>
 {% else %}
-  <div class="auto auto-link">
+  <!-- <div class="auto auto-link">
     <a href="{% url 'login' %}" class="child">Авторизоваться</a>
     <p class="child">Вы не авторизованы</p>
   </div>
+<div class="auto auto-link">
+   <a href="{% url 'signup' %}" class="reg-a">Регистрация</a>
+ </div> -->
+<div class="div-autor">
+   <div class="child"></div>
+   <div class="child">
+     <p id="p-ch" class="child">Вы не авторизованы</p>
+     <a href="{% url 'login' %}" class="child">авторизируйтесь</a>
+   </div>
+   <div class="child">
+      <p class="child">Если вы не зарегистрированны то </p>
+      <a href="{% url 'signup' %}" class="child">зарегистрируйтесь</a>
+   </div>
+  <div class="child"></div>
+</div>
 {% endif %}
 {% endblock %}

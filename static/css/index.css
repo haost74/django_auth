@@ -52,12 +52,25 @@ margin-left: 50px;
 color:#E74C3C;
 }
 
-
-
 .div-autor{
   display: grid;
   width: 630px;
     height: 250px;
+    background-color: #AEB6BF;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.div-autortop{
+  display: grid;
+  width: 630px;
+    height: 550px;
     background-color: #AEB6BF;
 
     position: absolute;

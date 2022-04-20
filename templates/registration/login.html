@@ -4,12 +4,12 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="form">
+<div class="connect">
   <h2 class="reg-user">Авторизируйтесь</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_table}}
-    <button type="submit">Зарегистрировать</button>
+    {{ form.as_table }}
+    <button class="btn btn-secondary" type="submit">Зарегистрировать</button>
   </form>
   </div>
 {% endblock %}

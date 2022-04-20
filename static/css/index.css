@@ -81,3 +81,19 @@ color:#E74C3C;
     margin: auto;
     padding: 20px;
 }
+
+.connect{
+  display: grid;
+  width: 630px;
+    height: 250px;
+    background-color: #AEB6BF;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+}
+

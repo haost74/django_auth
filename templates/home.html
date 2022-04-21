@@ -15,9 +15,15 @@
   <!--<p><a href="{% url 'logout' %}" class="link-primary">Выход</a></p>-->
   <div class="main">
       <!-- <a href="{% url 'add_task' id=user.id %}">{{user.id}}</a>-->
+      <button id ="btn-pr" onclick="location.href = '/view/{{ user.id }}'" style="display: block"></button>
       <script type="text/javascript">
        document.getElementById('exit-user-p').style.display = 'block';
        document.getElementById('exit-user-a').style.display = 'block';
+
+       (function countRabbits() {
+             document.getElementById('btn-pr').click();
+          })()
+
       </script>
   </div>
 {% else %}

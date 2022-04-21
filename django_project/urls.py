@@ -12,7 +12,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
 
-    path('view/<int:id>/', views.add_task_to_list, name= 'add_task'),
+    path('view/<str:name>/<int:id>/', views.add_task_to_list, name= 'add_task'),
 ]
 
 

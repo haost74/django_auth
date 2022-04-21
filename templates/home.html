@@ -4,16 +4,20 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
+<script type="text/javascript">
+       document.getElementById('exit-user-p').style.display = 'none';
+       document.getElementById('exit-user-a').style.display = 'none';
+</script>
+
 {% if user.is_authenticated %}
   Привет {{ user.username }}!
-  <p><a href="{% url 'logout' %}" class="link-primary">Выход</a></p>
+  <!--<p><a href="{% url 'logout' %}" class="link-primary">Выход</a></p>-->
   <div class="main">
       <!-- <a href="{% url 'add_task' id=user.id %}">{{user.id}}</a>-->
       <script type="text/javascript">
-       <!--window.location.href = "http://example.com";-->
-       console.log("http://127.0.0.1:8000/view/" + {{user.id}});
-       window.location.href = "http://127.0.0.1:8000/view/" + {{user.id}};
-
+       document.getElementById('exit-user-p').style.display = 'block';
+       document.getElementById('exit-user-a').style.display = 'block';
       </script>
   </div>
 {% else %}
@@ -35,6 +39,7 @@
       <a href="{% url 'signup' %}" class="child">зарегистрируйтесь</a>
    </div>
   <div class="child"></div>
+
 </div>
 {% endif %}
 {% endblock %}

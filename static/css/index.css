@@ -102,3 +102,9 @@ color:#E74C3C;
   width:100wh;
 }
 
+.div404img{
+position: absolute;
+    top:0;
+    bottom: -100px;
+}
+

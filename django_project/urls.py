@@ -2,7 +2,9 @@
 from django import forms
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView # new
+from django.views.generic.base import TemplateView
+
+from django.conf.urls import handler404
 
 from . import views
 
@@ -16,4 +18,4 @@ urlpatterns = [
     path('view/<int:idlesson>/<int:iduser>/<str:namep>/', views.next_lesson, name='new_lessons'),
 ]
 
-
+handler404 = views.error_404

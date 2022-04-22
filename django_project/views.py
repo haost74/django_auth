@@ -6,6 +6,10 @@ from django.shortcuts import render
 from django.contrib.auth import logout
 from accounts.models import UserModel
 
+import os.path
+from django.template import RequestContext
+
+
 from django.template.loader import get_template
 from django.db import models
 
@@ -38,7 +42,18 @@ def add_task_to_list(request, name, id):
         return render(request, 'home.html')
 
 def next_lesson(request, idlesson, iduser, namep):
-    print(idlesson)
-    return render(request, 'home.html')
+    numpage = idlesson + 1
+    isexist = os.path.exists('templates/lessons' + str(numpage) + '.html')
+    print(isexist)
+    if(isexist):
+        return render(request, 'lessons' + str(numpage) + '.html',
+                  {'num': idlesson, 'name': namep, 'id': iduser})
+    else:
+        return error_404(request, {}) #render(request, '404.html')
+
+def error_404(request, context):
+    context = {}
+    return render(request, '404.html', context)
+
 
 

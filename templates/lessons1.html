@@ -3,6 +3,6 @@
 {% block title %}Home{% endblock %}
 {% include data_template %}
 {% block content %}
-<div>Hi {{num}}</div>
-<a href="{% url 'new_lessons' idlesson=num %}" class="child">Сдедующий урок</a>
+<div>Hi {{num}} {{id}} {{name}}</div>
+<a href="{% url 'new_lessons' idlesson=num iduser=id namep=name %}" class="child">Сдедующий урок</a>
 {% endblock %}

@@ -17,8 +17,8 @@ from django.db import models
 def add_task_to_list(request, name, id):
 
     current_user = request.user.username
-    print(current_user, name)
-    print(current_user == name)
+    #print(current_user, name)
+    #print(current_user == name)
 
     #UserModel.objects.filter(iduser=id).delete()
 
@@ -31,14 +31,14 @@ def add_task_to_list(request, name, id):
             u = UserModel(iduser=id, name=name)
             u.save()
         us = UserModel.objects.all().filter(iduser=id)
-        print(us[0].lessonsmax)
-        return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num':us[0].lessonsmax})
+        #print(us[0].lessonsmax)
+        return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser})
     else:
         logout(request)
         return render(request, 'home.html')
 
-def next_lesson(request, idlesson):
-    print(request)
+def next_lesson(request, idlesson, iduser, namep):
+    print(idlesson)
     return render(request, 'home.html')
 
 

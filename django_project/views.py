@@ -5,6 +5,8 @@ from django.contrib.auth import get_user_model
 from django.shortcuts import render
 from django.contrib.auth import logout
 from accounts.models import UserModel
+
+from django.template.loader import get_template
 from django.db import models
 
 #python manage.py makemigrations
@@ -26,13 +28,17 @@ def add_task_to_list(request, name, id):
         cn = UserModel.objects.all().filter(iduser=id).count()
         print(cn)
         if(cn == 0):
-            u = UserModel(iduser = id, name = name)
+            u = UserModel(iduser=id, name=name)
             u.save()
         us = UserModel.objects.all().filter(iduser=id)
         print(us[0].lessonsmax)
-        return render(request, 'lessons'+ str(us[0].lessonsmax) + '.html')
+        return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num':us[0].lessonsmax})
     else:
         logout(request)
         return render(request, 'home.html')
+
+def next_lesson(request, idlesson):
+    print(request)
+    return render(request, 'home.html')
 
 

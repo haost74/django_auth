@@ -68,7 +68,7 @@
 </ul>
 <span class="quesion_n">5.Выберете верное утверждение:</span>
 <ul>
-<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" /> <label for="test_1_0_5">Динамическая типизация. В python не надо заранее объявлять тип переменной, что очень удобно при разработке </label></li>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState()" onclick="updateButtonState()"/> <label for="test_1_0_5">Динамическая типизация. В python не надо заранее объявлять тип переменной, что очень удобно при разработке </label></li>
 <li><input type="radio" name="test[5]" value="1" id="test_1_1_5" /> <label for="test_1_1_5">Идея создания языка Python зародилась в 1998 году и проект изначально назывался COOL (C-style Object Oriented Language)</label></li>
 <li><input type="radio" name="test[5]" value="2" id="test_1_2_5" /> <label for="test_1_2_5">Файлы с кодом на Python обычно имеют расширение .cs
  </label></li>
@@ -76,7 +76,25 @@
 
 
        {% csrf_token %}
-      <button onclick="res()" name="run_script" class="btn btn-info">Проверить результаты</button>
+      <button id="btnInput" type="submit" name="run_script" class="btn btn-info">Проверить результаты</button>
+     <script>
+
+        let n = 0;
+
+
+        function updateButtonState(){
+
+
+         var el1 =  document.getElementsByName("test[5]");
+
+         console.log(el1);
+
+        //console.log(document.getElementsByName("test[5]")[0].value);
+        //console.log(document.getElementsByName("test[5]"));
+
+        }
+        updateButtonState();
+    </script>
     </form>
 
 </div>

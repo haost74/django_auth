@@ -8,6 +8,10 @@ from accounts.models import UserModel
 
 import os.path
 
+#from data import checkRes
+from django_project.data import checkRes
+
+
 from django.template import RequestContext
 
 
@@ -26,12 +30,13 @@ def add_task_to_list(request, name, id):
     isTest = False
     if(request.method == "POST" and 'run_script' in request.POST):
         res = request.POST.get("test[5]")
-        #res = request.POST["test[5]"]
+        us = UserModel.objects.all().filter(iduser=id)
+        res = checkRes(request, us[0])
         print(res)
 
     if(current_user == name):
         cn = UserModel.objects.all().filter(iduser=id).count()
-        print(cn)
+        #print(cn)
         if(cn == 0):
             u = UserModel(iduser=id, name=name)
             u.save()

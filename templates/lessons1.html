@@ -43,57 +43,55 @@
 <form method="post">
    <span class="quesion_n">1.В каком году был создан язык программирования Python?</span>
    <ul>
-   <li><input type="radio" name="test[1]" value="0" id="test_1_0_1" /> <label for="test_1_0_1">1991 год</label></li>
-   <li><input type="radio" name="test[1]" value="1" id="test_1_1_1" /> <label for="test_1_1_1">1995 год</label></li>
-   <li><input type="radio" name="test[1]" value="2" id="test_1_2_1" /> <label for="test_1_2_1">1988 год</label></li>
+   <li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1">1991 год</label></li>
+   <li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">1995 год</label></li>
+   <li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">1988 год</label></li>
    </ul>
 <span class="quesion_n">2.Python является…</span>
 <ul>
-<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" /> <label for="test_1_0_2">структурным языком программирования</label></li>
-<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" /> <label for="test_1_1_2">объектно-ориентированном языком программирвоания</label></li>
-<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" /> <label for="test_1_2_2">процедурным языком программирования </label></li>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2">структурным языком программирования</label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">объектно-ориентированном языком программирвоания</label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">процедурным языком программирования </label></li>
 </ul>
 <span class="quesion_n">3.Что значит интерпретируемый язык программирования?</span>
 <ul>
-<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" /> <label for="test_1_0_3">Интерпретируемый язык - язык, исходный код которого преобразуется компилятором в машинный код и записывается в файл с особым заголовком и/или расширением для последующей идентификации этого файла, как исполняемого операционной системой. </label></li>
-<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" /> <label for="test_1_1_3">Интерпретируемый язык -язык, исходный код которого  частями преобразуется в машинный в процессе его чтения специальной программой – интерпретатором.</label></li>
-<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" /> <label for="test_1_2_3">Интерпретируемый язык — язык программирования, близкий к программированию непосредственно в машинных кодах используемого реального или виртуального процессора. </label></li>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">Интерпретируемый язык - язык, исходный код которого преобразуется компилятором в машинный код и записывается в файл с особым заголовком и/или расширением для последующей идентификации этого файла, как исполняемого операционной системой. </label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">Интерпретируемый язык -язык, исходный код которого  частями преобразуется в машинный в процессе его чтения специальной программой – интерпретатором.</label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">Интерпретируемый язык — язык программирования, близкий к программированию непосредственно в машинных кодах используемого реального или виртуального процессора. </label></li>
 </ul>
 <span class="quesion_n">4.Что характерно для языка программирования Python?</span>
 <ul>
-<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" /> <label for="test_1_0_4">Большое количество библиотек </label></li>
-<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" /> <label for="test_1_1_4">Декларативный язык программирования</label></li>
-<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" /> <label for="test_1_2_4">Среда разработки - Visual Studio
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">Большое количество библиотек </label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">Декларативный язык программирования</label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">Среда разработки - Visual Studio
  </label></li>
 </ul>
 <span class="quesion_n">5.Выберете верное утверждение:</span>
 <ul>
-<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState()" onclick="updateButtonState()"/> <label for="test_1_0_5">Динамическая типизация. В python не надо заранее объявлять тип переменной, что очень удобно при разработке </label></li>
-<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" /> <label for="test_1_1_5">Идея создания языка Python зародилась в 1998 году и проект изначально назывался COOL (C-style Object Oriented Language)</label></li>
-<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" /> <label for="test_1_2_5">Файлы с кодом на Python обычно имеют расширение .cs
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5">Динамическая типизация. В python не надо заранее объявлять тип переменной, что очень удобно при разработке </label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5">Идея создания языка Python зародилась в 1998 году и проект изначально назывался COOL (C-style Object Oriented Language)</label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">Файлы с кодом на Python обычно имеют расширение .cs
  </label></li>
 </ul>
 
 
        {% csrf_token %}
-      <button id="btnInput" type="submit" name="run_script" class="btn btn-info">Проверить результаты</button>
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
      <script>
-
-        let n = 0;
-
-
-        function updateButtonState(){
-
-
-         var el1 =  document.getElementsByName("test[5]");
-
-         console.log(el1);
-
-        //console.log(document.getElementsByName("test[5]")[0].value);
-        //console.log(document.getElementsByName("test[5]"));
-
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+             if(list.length >= 5){
+               document.getElementById('btn-input').style.display = 'block';
+               }
         }
-        updateButtonState();
     </script>
     </form>
 

@@ -1,0 +1,21 @@
+@import url("404.css");
+
+ .abz {
+    text-indent: 30px;	/* Отступ первой строки в пикселах */
+	font-size: 20pt;
+   }
+   .block1 {
+    width: auto; /* Ширина элемента в пикселах */
+    padding: 60px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+	margin-left:15%;
+	margin-right:15%;
+    background: #FAF0E6	; /* Цвет фона */
+   }
+   span {
+	font-size: 20pt;
+   }
+    li {
+	font-size: 20pt;
+    list-style-type: none; /* Убираем маркеры */
+   }

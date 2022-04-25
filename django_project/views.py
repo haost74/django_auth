@@ -7,6 +7,7 @@ from django.contrib.auth import logout
 from accounts.models import UserModel
 
 import os.path
+
 from django.template import RequestContext
 
 
@@ -18,16 +19,16 @@ from django.db import models
 #python manage.py migrate --run-syncdb
 
 
+
 def add_task_to_list(request, name, id):
 
     current_user = request.user.username
-    #print(current_user, name)
-    #print(current_user == name)
+    isTest = False
+    if(request.method == "POST" and 'run_script' in request.POST):
+        res = request.POST.get("test[5]")
+        #res = request.POST["test[5]"]
+        print(res)
 
-    #UserModel.objects.filter(iduser=id).delete()
-
-    address = 'lessons' + str(id) + '.html'
-    #address = 'lessons' + str(Id) + '.html'
     if(current_user == name):
         cn = UserModel.objects.all().filter(iduser=id).count()
         print(cn)
@@ -35,7 +36,6 @@ def add_task_to_list(request, name, id):
             u = UserModel(iduser=id, name=name)
             u.save()
         us = UserModel.objects.all().filter(iduser=id)
-        #print(us[0].lessonsmax)
         return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser})
     else:
         logout(request)

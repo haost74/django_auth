@@ -88,7 +88,9 @@
               list.push(inpt.name)
             }
            }
-             if(list.length >= 5){
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
                document.getElementById('btn-input').style.display = 'block';
                }
         }
@@ -96,7 +98,5 @@
     </form>
 
 </div>
-
-
 <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name %}" class="child">Сдедующий урок</a>
 {% endblock %}

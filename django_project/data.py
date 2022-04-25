@@ -6,16 +6,19 @@ def checkRes(request, us):
     return False
 
 
+
 def lessons1(request, us):
+    isRes = True
     res1 = request.POST.get("test[1]")
     res2 = request.POST.get("test[2]")
     res3 = request.POST.get("test[3]")
     res4 = request.POST.get("test[4]")
     res5 = request.POST.get("test[5]")
 
-    print(res1)
-    print(res2)
-    print(res3)
-    print(res4)
-    print(res5)
-    return False
+    isRes = '0' == res1
+    isRes = '0' == res2
+    isRes = '0' == res3
+    isRes = '0' == res4
+    isRes = '0' == res5
+
+    return isRes

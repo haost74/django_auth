@@ -12,12 +12,12 @@
 <div class="flex-item-p">
     {% if isres == 1 %}
     <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
-    {% elif isres == 2 %}
+    {% elif isres == 2 or isres == 4 %}
     <p>К сожалению есть неверные ответы, изучите материал и в следующий раз у вас все получится</p>
     {% endif %}
 </div>
 <div class="flex-item">
-    {% if isres == 1 %}
+    {% if isres == 1 or isres == 4 %}
     <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0 %}" class="child">Сдедующий урок</a>
     {% endif %}
 </div>
@@ -35,12 +35,12 @@
 <div class="flex-item-p">
     {% if isres == 1 %}
     <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
-    {% elif isres == 2 %}
+    {% elif isres == 2 or isres == 4 %}
     <p>К сожалению есть неверные ответы, изучите материал и в следующий раз у вас все получится</p>
     {% endif %}
 </div>
 <div class="flex-item">
-    {% if isres == 1 %}
+    {% if isres == 1 or isres == 4 %}
     <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0 %}" class="child">Сдедующий урок</a>
     {% endif %}
 </div>

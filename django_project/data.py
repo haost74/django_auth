@@ -23,8 +23,6 @@ def lessons2(request, us):
     res4 = request.POST.get("test[4]")
     res5 = request.POST.get("test[5]")
 
-    print(res1 , res2, res3, res4, res5)
-
     if ('0' != res1): return False
     if ('2' != res2): return False
     if ('1' != res3): return False

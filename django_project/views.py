@@ -27,6 +27,9 @@ from django.db import models
 
 
 def add_task_to_list(request, name, id):
+    #UserModel.objects.all().filter(iduser=1).delete()
+    #UserModel.objects.all().filter(iduser=2).delete()
+    #UserModel.objects.all().filter(iduser=3).delete()
 
 
     current_user = request.user.username
@@ -36,7 +39,7 @@ def add_task_to_list(request, name, id):
         print(res, 'post', 'add_task_to_list')
         if(res):
             return render(request, 'lessons'+str(us[0].lessonsmax)+'.html',
-                          {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 1})
+                          {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 0})
         else:
             return render(request, 'lessons' + str(us[0].lessonsmax) + '.html',
                           {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 2})
@@ -61,41 +64,64 @@ def next_lesson(request, idlesson, iduser, namep, isres):
     if (request.method == "POST" and 'run_script' in request.POST):
         us = UserModel.objects.all().filter(iduser=iduser)
         res = checkRes(request, us[0])
-        print(res, idlesson, 'post', 'next_lesson')
+        print(res)
+        np = idlesson
+        if (np != 1):
+            np = idlesson - 1
         if (res):
-            return render(request, 'lessons' + str(us[0].lessonsmax) + '.html',
-                          {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 0})
-        else:
-            np = idlesson
-            if(np != 1):
-                np = idlesson - 1
             return render(request, 'lessons' + str(np) + '.html',
-                          {'num': np, 'name': us[0].name, 'id': us[0].iduser, 'isres': 1})
+                          {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 1})
+        else:
+            return render(request, 'lessons' + str(np) + '.html',
+                          {'num': np, 'name': us[0].name, 'id': us[0].iduser, 'isres': 2})
 
     numpage = idlesson
 
-    if(isres != 5):
-        numpage = idlesson + 1
-    else:
-        numpage = idlesson - 1
+    numpage = idlesson + 1
     isexist = os.path.exists('templates/lessons' + str(numpage) + '.html')
     print(numpage, 'get', 'next_lesson')
     if(isexist):
         us = UserModel.objects.all().filter(iduser=iduser)
+
+        isres = 4
+        if (us[0].lessonsmax >= numpage):
+            isres = 0
+        print('isres = ', isres, us[0].lessonsmax)
         return render(request, 'lessons' + str(numpage) + '.html',
-                  {'num': numpage, 'name': namep, 'id': iduser, 'isres': 0})
+                  {'num': numpage, 'name': namep, 'id': iduser, 'isres': isres})
     else:
         return error_404(request, {}) #render(request, '404.html')
 
 def old_lessons(request, idlesson, iduser, namep):
     print('old lessons', idlesson)
+
+    if (request.method == "POST" and 'run_script' in request.POST):
+        us = UserModel.objects.all().filter(iduser=iduser)
+        res = checkRes(request, us[0])
+        print('old_lessons', 'post')
+        np = idlesson
+        if (np != 1):
+            np = idlesson - 1
+        isres = 1
+        if(us[0].lessonsmax > (idlesson - 1)):
+            isres = 4
+
+        if (res):
+            return render(request, 'lessons' + str(np) + '.html',
+                          {'num': np, 'name': us[0].name, 'id': us[0].iduser, 'isres': isres})
+        else:
+            return render(request, 'lessons' + str(np) + '.html',
+                          {'num': np, 'name': us[0].name, 'id': us[0].iduser, 'isres': isres})
+
+        print('old_lessons', 'get')
+
     np = idlesson - 1
     print('lessons' + str(np) + '.html')
     if(np > 0):
-        return render(request, 'lessons' + str(np) + '.html', {'num': np, 'name': namep, 'id': iduser})
+        return render(request, 'lessons' + str(np) + '.html', {'num': np, 'name': namep, 'id': iduser, 'isres': 1})
     else:
         return render(request, 'lessons' + str(idlesson) + '.html',
-                          {'num': idlesson, 'name': namep, 'id': iduser})
+                          {'num': idlesson, 'name': namep, 'id': iduser, 'isres': 4})
 
 
 

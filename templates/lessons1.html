@@ -5,7 +5,27 @@
 {% block content %}
 <!--<div>Hi {{num}} {{id}} {{name}} {{isres}}</div>-->
 
-{% if isres == 0 %}
+<div class="div-state-res">
+<div class="flex-item">
+    {% if num != 1 %}
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0%}" class="child">Предыдущий  урок</a>
+    {% endif %}
+</div>
+<div class="flex-item-p">
+    {% if isres == 1 %}
+    <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
+    {% elif isres == 2 %}
+    <p>К сожалению есть не верные ответы, изучите материал и в следующий раз у вас все получится</p>
+    {% endif %}
+</div>
+<div class="flex-item">
+    {% if isres == 1 %}
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0 %}" class="child">Сдедующий урок</a>
+    {% endif %}
+</div>
+</div>
+
+
 <div class="container d-flex align-items-center justify-content-center">
 <h1>Урок 1. Введение.</h1>
 </div>
@@ -97,15 +117,27 @@
         }
     </script>
     </form>
-
+</div>
+<div class="div-state-res">
+<div class="flex-item">
+    {% if num != 1 %}
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0%}" class="child">Предыдущий  урок</a>
+    {% endif %}
+</div>
+<div class="flex-item-p">
+    {% if isres == 1 %}
+    <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
+    {% elif isres == 2 %}
+    <p>К сожалению есть не верные ответы, изучите материал и в следующий раз у вас все получится</p>
+    {% endif %}
+</div>
+<div class="flex-item">
+    {% if isres == 1 %}
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0 %}" class="child">Сдедующий урок</a>
+    {% endif %}
+</div>
 </div>
 <!-- <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0%}" class="child">Сдедующий урок</a>-->
-{% elif isres == 1 %}
-<div>
-    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0%}" class="child">Сдедующий урок</a>
-</div>
-{% else %}
-<div>bad</div>
-{% endif %}
+
 
 {% endblock %}

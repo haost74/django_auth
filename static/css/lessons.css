@@ -2,7 +2,7 @@
 
  .abz {
     text-indent: 30px;	/* Отступ первой строки в пикселах */
-	font-size: 20pt;
+	font-size: 15pt;
    }
    .block1 {
     width: auto; /* Ширина элемента в пикселах */
@@ -19,3 +19,27 @@
 	font-size: 20pt;
     list-style-type: none; /* Убираем маркеры */
    }
+
+   .div-state-res{
+    height:50px;
+    width:100vw;
+    display: -webkit-flex;
+    margin-top:50px;
+
+   }
+
+   .div-state-res > .flex-item {
+	-webkit-flex: 20vw;
+	flex: auto;
+	text-align: center
+}
+
+  .div-state-res > .flex-item-p {
+	-webkit-flex: 80vw;
+	flex: auto;
+	text-align: center
+}
+
+.div-state-res > .flex-item-p > p{
+ font-size: 15pt;
+}

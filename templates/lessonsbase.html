@@ -6,14 +6,14 @@
 <div class="div-state-res">
 <div class="flex-item">
     {% if num != 1 %}
-    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=5%}" class="child">Предыдущий  урок</a>
+    <a href="{% url 'old_lessons' idlesson=num iduser=id namep=name %}" class="child">Предыдущий  урок</a>
     {% endif %}
 </div>
 <div class="flex-item-p">
     {% if isres == 1 %}
     <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
     {% elif isres == 2 %}
-    <p>К сожалению есть не верные ответы, изучите материал и в следующий раз у вас все получится</p>
+    <p>К сожалению есть неверные ответы, изучите материал и в следующий раз у вас все получится</p>
     {% endif %}
 </div>
 <div class="flex-item">
@@ -29,14 +29,14 @@
 <div class="div-state-res">
 <div class="flex-item">
     {% if num != 1 %}
-    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=5%}" class="child">Предыдущий  урок</a>
+    <a href="{% url 'old_lessons' idlesson=num iduser=id namep=name %}" class="child">Предыдущий  урок</a>
     {% endif %}
 </div>
 <div class="flex-item-p">
     {% if isres == 1 %}
     <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
     {% elif isres == 2 %}
-    <p>К сожалению есть не верные ответы, изучите материал и в следующий раз у вас все получится</p>
+    <p>К сожалению есть неверные ответы, изучите материал и в следующий раз у вас все получится</p>
     {% endif %}
 </div>
 <div class="flex-item">

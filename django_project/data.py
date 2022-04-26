@@ -15,10 +15,10 @@ def lessons1(request, us):
     res4 = request.POST.get("test[4]")
     res5 = request.POST.get("test[5]")
 
-    isRes = '0' == res1
-    isRes = '0' == res2
-    isRes = '0' == res3
-    isRes = '0' == res4
-    isRes = '0' == res5
+    if('0' != res1): return False
+    if('1' != res2): return False
+    if('0' != res3): return False
+    if('0' != res4): return False
+    if('0' != res5): return False
 
     return isRes

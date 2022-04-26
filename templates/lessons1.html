@@ -3,8 +3,9 @@
 {% block title %}Урок №1{% endblock %}
 {% include data_template %}
 {% block content %}
-<!--<div>Hi {{num}} {{id}} {{name}}</div> -->
+<!--<div>Hi {{num}} {{id}} {{name}} {{isres}}</div>-->
 
+{% if isres == 0 %}
 <div class="container d-flex align-items-center justify-content-center">
 <h1>Урок 1. Введение.</h1>
 </div>
@@ -99,4 +100,10 @@
 
 </div>
 <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name %}" class="child">Сдедующий урок</a>
+{% elif isres == 1 %}
+<div>succes</div>
+{% else %}
+<div>bad</div>
+{% endif %}
+
 {% endblock %}

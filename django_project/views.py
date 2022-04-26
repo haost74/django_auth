@@ -27,12 +27,17 @@ from django.db import models
 def add_task_to_list(request, name, id):
 
     current_user = request.user.username
-    isTest = False
+    #isTest = False
     if(request.method == "POST" and 'run_script' in request.POST):
-        res = request.POST.get("test[5]")
         us = UserModel.objects.all().filter(iduser=id)
         res = checkRes(request, us[0])
-        print(res)
+        if(res):
+            return render(request, 'lessons'+str(us[0].lessonsmax)+'.html',
+                          {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 1})
+        else:
+            return render(request, 'lessons' + str(us[0].lessonsmax) + '.html',
+                          {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 2})
+
 
     if(current_user == name):
         cn = UserModel.objects.all().filter(iduser=id).count()
@@ -41,7 +46,7 @@ def add_task_to_list(request, name, id):
             u = UserModel(iduser=id, name=name)
             u.save()
         us = UserModel.objects.all().filter(iduser=id)
-        return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser})
+        return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 0})
     else:
         logout(request)
         return render(request, 'home.html')
@@ -52,7 +57,7 @@ def next_lesson(request, idlesson, iduser, namep):
     print(isexist)
     if(isexist):
         return render(request, 'lessons' + str(numpage) + '.html',
-                  {'num': idlesson, 'name': namep, 'id': iduser})
+                  {'num': idlesson, 'name': namep, 'id': iduser, 'isres': 0})
     else:
         return error_404(request, {}) #render(request, '404.html')
 

@@ -74,8 +74,12 @@ def next_lesson(request, idlesson, iduser, namep, isres):
     isexist = os.path.exists('templates/lessons' + str(numpage) + '.html')
     print(isres, 'get', 'next_lesson')
     if(isexist):
+        us = UserModel.objects.all().filter(iduser=iduser)
+        nm = 0
+        if(numpage < us[0].lessonsmax):
+            nm = 1
         return render(request, 'lessons' + str(numpage) + '.html',
-                  {'num': numpage, 'name': namep, 'id': iduser, 'isres': 0})
+                  {'num': numpage, 'name': namep, 'id': iduser, 'isres': nm})
     else:
         return error_404(request, {}) #render(request, '404.html')
 

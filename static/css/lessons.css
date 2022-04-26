@@ -13,10 +13,10 @@
     background: #FAF0E6	; /* Цвет фона */
    }
    span {
-	font-size: 20pt;
+	font-size: 17pt;
    }
     li {
-	font-size: 20pt;
+	font-size: 17pt;
     list-style-type: none; /* Убираем маркеры */
    }
 
@@ -29,14 +29,14 @@
    }
 
    .div-state-res > .flex-item {
-	-webkit-flex: 20vw;
-	flex: auto;
+	-webkit-flex: 20%;
+	flex: 20%;
 	text-align: center
 }
 
   .div-state-res > .flex-item-p {
-	-webkit-flex: 80vw;
-	flex: auto;
+	-webkit-flex: 60%;
+	flex: 60%;
 	text-align: center
 }
 

@@ -30,7 +30,7 @@ def add_task_to_list(request, name, id):
     if(request.method == "POST" and 'run_script' in request.POST):
         us = UserModel.objects.all().filter(iduser=id)
         res = checkRes(request, us[0])
-        print(res, 'post')
+        print(res, 'post', 'add_task_to_list')
         if(res):
             return render(request, 'lessons'+str(us[0].lessonsmax)+'.html',
                           {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 1})
@@ -52,11 +52,13 @@ def add_task_to_list(request, name, id):
         return render(request, 'home.html')
 
 def next_lesson(request, idlesson, iduser, namep, isres):
+
     current_user = request.user.username
+
     if (request.method == "POST" and 'run_script' in request.POST):
         us = UserModel.objects.all().filter(iduser=iduser)
         res = checkRes(request, us[0])
-        print(res, 'post')
+        print(res, 'post', 'next_lesson')
         if (res):
             return render(request, 'lessons' + str(us[0].lessonsmax) + '.html',
                           {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 1})
@@ -70,7 +72,7 @@ def next_lesson(request, idlesson, iduser, namep, isres):
     else:
         numpage = idlesson - 1
     isexist = os.path.exists('templates/lessons' + str(numpage) + '.html')
-    print(isexist, 'get')
+    print(isres, 'get', 'next_lesson')
     if(isexist):
         return render(request, 'lessons' + str(numpage) + '.html',
                   {'num': numpage, 'name': namep, 'id': iduser, 'isres': 0})

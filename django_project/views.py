@@ -52,12 +52,16 @@ def add_task_to_list(request, name, id):
         return render(request, 'home.html')
 
 def next_lesson(request, idlesson, iduser, namep, isres):
-    numpage = idlesson + 1
+    numpage = idlesson
+    if(isres != 5):
+        numpage = idlesson + 1
+    else:
+        numpage = idlesson - 1
     isexist = os.path.exists('templates/lessons' + str(numpage) + '.html')
     print(isexist)
     if(isexist):
         return render(request, 'lessons' + str(numpage) + '.html',
-                  {'num': idlesson, 'name': namep, 'id': iduser, 'isres': 0})
+                  {'num': numpage, 'name': namep, 'id': iduser, 'isres': 0})
     else:
         return error_404(request, {}) #render(request, '404.html')
 

@@ -15,7 +15,7 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
 
     path('view/<str:name>/<int:id>/', views.add_task_to_list, name='add_task'),
-    path('view/<int:idlesson>/<int:iduser>/<str:namep>/<int:isres', views.next_lesson, name='new_lessons'),
+    path('view/<int:idlesson>/<int:iduser>/<str:namep>/<int:isres>', views.next_lesson, name='new_lessons'),
 ]
 
 handler404 = views.error_404

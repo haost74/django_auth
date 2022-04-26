@@ -99,9 +99,11 @@
     </form>
 
 </div>
-<a href="{% url 'new_lessons' idlesson=num iduser=id namep=name %}" class="child">Сдедующий урок</a>
+<!-- <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0%}" class="child">Сдедующий урок</a>-->
 {% elif isres == 1 %}
-<div>succes</div>
+<div>
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0%}" class="child">Сдедующий урок</a>
+</div>
 {% else %}
 <div>bad</div>
 {% endif %}

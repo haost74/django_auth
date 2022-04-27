@@ -68,7 +68,8 @@ def next_lesson(request, idlesson, iduser, namep, isres):
 
     if (request.method == "POST" and 'run_script' in request.POST):
         us = UserModel.objects.all().filter(iduser=iduser)
-        res = checkRes(request, us[0], num_page)
+        res = False
+        res = checkRes(request, us[0], num_page, num_page == us[0].lessonsmax)
         print(us[0].lessonsmax, num_page)
         print(num_page, 'POST', 'next_lesson')
 

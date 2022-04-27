@@ -38,7 +38,7 @@ def add_task_to_list(request, name, id):
     current_user = request.user.username
     if(request.method == "POST" and 'run_script' in request.POST):
         us = UserModel.objects.all().filter(iduser=id)
-        res = checkRes(request, us[0])
+        res = checkRes(request, us[0], num_page)
         print(us[0].lessonsmax, num_page)
         print(res,  num_page, 'post', 'add_task_to_list')
         if(res):
@@ -51,11 +51,11 @@ def add_task_to_list(request, name, id):
 
     if(current_user == name):
         cn = UserModel.objects.all().filter(iduser=id).count()
-        #print(cn)
         if(cn == 0):
             u = UserModel(iduser=id, name=name)
             u.save()
         us = UserModel.objects.all().filter(iduser=id)
+        num_page = us[0].lessonsmax
         return render(request, 'lessons'+str(us[0].lessonsmax)+'.html', {'num': us[0].lessonsmax, 'name': us[0].name, 'id': us[0].iduser, 'isres': 0})
     else:
         logout(request)
@@ -68,7 +68,7 @@ def next_lesson(request, idlesson, iduser, namep, isres):
 
     if (request.method == "POST" and 'run_script' in request.POST):
         us = UserModel.objects.all().filter(iduser=iduser)
-        res = checkRes(request, us[0])
+        res = checkRes(request, us[0], num_page)
         print(us[0].lessonsmax, num_page)
         print(num_page, 'POST', 'next_lesson')
 
@@ -107,7 +107,7 @@ def old_lessons(request, idlesson, iduser, namep):
         us = UserModel.objects.all().filter(iduser=iduser)
         ud= us[0]
         ud.lessonsmax = num_page
-        res = checkRes(request, ud, False)
+        res = checkRes(request, ud, num_page, False)
         print(us[0].lessonsmax, num_page)
         print('old_lessons', 'post', res)
         np = idlesson

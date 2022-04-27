@@ -1,7 +1,7 @@
 from accounts.models import UserModel
 
-def checkRes(request, us, isSave=True):
-    if(us.lessonsmax == 1):
+def checkRes(request, us, num_page, isSave=True):
+    if(num_page == 1):
        return lessons1(request, us, isSave)
     else:
         return lessons2(request, us, isSave)

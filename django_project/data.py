@@ -17,6 +17,10 @@ def checkRes(request, us, num_page, isSave=True):
         return lessons7(request, us, isSave)
     elif num_page == 8:
         return lessons8(request, us, isSave)
+    elif num_page == 9:
+        return lessons9(request, us, isSave)
+    elif num_page == 10:
+        return lessons10(request, us, isSave)
     return False
 
 
@@ -25,6 +29,43 @@ def updateUserModel(isUpdate, us):
         nextlessons = us.lessonsmax + 1
         us.lessonsmax = nextlessons
         UserModel.objects.all().filter(iduser=us.iduser).update(lessonsmax=nextlessons)
+
+
+def lessons10(request, us, isSave):
+    isRes = True
+    res1 = request.POST.get("test[1]")
+    res2 = request.POST.get("test[2]")
+    res3 = request.POST.get("test[3]")
+    res4 = request.POST.get("test[4]")
+    res5 = request.POST.get("test[5]")
+
+    if ('2' != res1): return False
+    if ('1' != res2): return False
+    if ('0' != res3): return False
+    if ('0' != res4): return False
+    if ('2' != res5): return False
+
+    if(isSave):
+        updateUserModel(isRes, us)
+    return isRes
+
+def lessons9(request, us, isSave):
+    isRes = True
+    res1 = request.POST.get("test[1]")
+    res2 = request.POST.get("test[2]")
+    res3 = request.POST.get("test[3]")
+    res4 = request.POST.get("test[4]")
+    res5 = request.POST.get("test[5]")
+
+    if ('1' != res1): return False
+    if ('1' != res2): return False
+    if ('0' != res3): return False
+    if ('0' != res4): return False
+    if ('0' != res5): return False
+
+    if(isSave):
+        updateUserModel(isRes, us)
+    return isRes
 
 
 def lessons8(request, us, isSave):
